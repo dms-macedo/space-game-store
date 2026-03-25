@@ -129,7 +129,7 @@ const jogosJSON = `[
     "preco": 349.90,
     "emPromocao": false,
     "desenvolvedora": "Insomniac Games",
-    "imagemCapa": "spiderman2.jpg"
+    "imagemCapa": "../../assets/images/marvels-spider-man-2.jpg"
   },
   {
     "id": 6,
@@ -954,15 +954,6 @@ const ConverterParaReal = (valor) => {
   return valorConvertido;
 };
 
-const fecharModal = () => {
-          if (document.body.contains(BuyContentCardInfos)) {
-            document.body.removeChild(BuyContentCardInfos);
-            document.body.classList.remove("no-scroll");
-            // Limpamos o ouvinte do teclado para ele não ficar rodando de fundo
-            document.removeEventListener("keydown", fecharComEsc);
-          }
-        };
-
 const esperar = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const RenderizarJogos = async (Jogos) => {
@@ -1014,7 +1005,6 @@ const RenderizarJogos = async (Jogos) => {
             precoCard.classList.add("preco-card");
 
             if (game.emPromocao && game.precoOriginal) {
-              const percentPrice = Math.round(((game.precoOriginal - game.preco) / game.precoOriginal) * 100);
               precoOriginalCard.textContent = `${ConverterParaReal(game.precoOriginal)}`;
               precoCard.textContent = `${ConverterParaReal(game.preco)} `;
               
@@ -1086,6 +1076,22 @@ const RenderizarJogos = async (Jogos) => {
             const contentTextsBuyBox = document.createElement("div");
             contentTextsBuyBox.classList.add("content-texts-buy-box");
             BuyBoxCardInfos.appendChild(contentTextsBuyBox);
+
+                // Tags
+                const contentTags = document.createElement("div")
+                contentTags.classList.add("content-tags")
+                contentTextsBuyBox.appendChild(contentTags)
+
+                  const TagContent = document.createElement("div")
+                  TagContent.classList.add("tag-content")
+                  contentTags.appendChild(TagContent)
+
+                    for (let tag of game.tags) {
+                      const tagcard = document.createElement("p")
+                      tagcard.classList.add("tag-card")
+                      tagcard.textContent = tag
+                      TagContent.appendChild(tagcard)
+                    }
 
                 // Botão de Fechar
                 const buttonExitBoxBuy = document.createElement("button");
@@ -1172,28 +1178,29 @@ const RenderizarJogos = async (Jogos) => {
                                 const tamanhoGameBoxBuy = document.createElement("p");
                                 tamanhoGameBoxBuy.textContent = `Tamanho: ${game.tamanhoGB}GB`;
                                 ContentGB.appendChild(tamanhoGameBoxBuy);
-
-                        // Tags
-                        const contentTags = document.createElement("div")
-                        contentTags.classList.add("content-tags")
-                        InfosContentBox.appendChild(contentTags)
-
-                          const TitleTags = document.createElement("h1")
-                          TitleTags.classList.add("title-tags")
-                          TitleTags.textContent = "Tags:"
-                          contentTags.appendChild(TitleTags)
-
-                          const TagContent = document.createElement("div")
-                          TagContent.classList.add("tag-content")
-                          contentTags.appendChild(TagContent)
-
-                            for (let tag of game.tags) {
-                              const tagcard = document.createElement("p")
-                              tagcard.classList.add("tag-card")
-                              tagcard.textContent = tag
-                              TagContent.appendChild(tagcard)
-                            }
                   
+              //Preço:
+              const percentPrice = Math.round(((game.precoOriginal - game.preco) / game.precoOriginal) * 100);
+              const PriceContent = document.createElement("div")
+              PriceContent.classList.add("price-content")
+              contentTextsBuyBox.appendChild(PriceContent)
+
+                    const originalPrice = document.createElement("p")
+                    originalPrice.classList.add("original-price")
+                    originalPrice.textContent = game.precoOriginal
+                    PriceContent.appendChild(originalPrice)
+
+                    const PriceWithDiscount = document.createElement("p")
+                    PriceWithDiscount.classList.add("price")
+                    PriceWithDiscount.textContent = game.preco
+                    PriceContent.appendChild(PriceWithDiscount)
+                    
+                    const PricePercentDiscount = document.createElement("p")
+                    PricePercentDiscount.classList.add("price-percent-discount")
+                    PricePercentDiscount.textContent = `${percentPrice}%`
+                    PriceContent.appendChild(PricePercentDiscount)
+
+
                 /* {
                   "id": 51,
                   "nome": "Red Dead Redemption",

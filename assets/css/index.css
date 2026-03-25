@@ -367,6 +367,15 @@ html {
     overflow: hidden;
 }
 
+.image-classification{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    height: 45px;
+    z-index: 1000000;
+    border: 0.1px solid white;
+}
+
 .image-buy-box{
     width: 300px;
     height: 100%;
@@ -544,6 +553,33 @@ html {
     cursor: pointer;
 }
 
+.content-tags{
+    position: absolute;
+    right: 20px;
+    bottom: 50px;
+    z-index: 10000;
+}
+
+.tag-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tag-card{
+    height: 30px;
+    width: 135px;
+    background-color: var(--light-cobalt-blue);
+    border: 1px solid var(--gulf-blue);
+    color: var(--medium-seashell);
+    border-radius: 30px;
+    text-align: center;
+    align-content: center;
+    padding-top: 2px;
+    font-family: Manrope;
+    font-size: 13px;
+    font-weight: 1;
+}
 
 .no-scroll {
     overflow: hidden;
