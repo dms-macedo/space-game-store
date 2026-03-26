@@ -581,6 +581,60 @@ html {
     font-weight: 1;
 }
 
+.price-content{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    z-index: 1000000;
+    line-height: 20px;
+}
+
+.original-price{
+    color: var(--gray-color-palete);
+    text-decoration: line-through;
+    font-family: Manrope;
+    font-size: 15px;
+    text-align: right;
+}
+
+.price{
+    color: var(--medium-seashell);
+    font-family: Manrope;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.price-percent-discount{
+    position: absolute;
+    left: 145px;
+    bottom: 16px;
+    color: white;
+    font-size: 13px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Manrope;
+    border-radius: 8px;
+    padding-top: 1px;
+}
+
+.buy-button-modal{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10000;
+    background-color: var(--light-cobalt-blue);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-family: Manrope;
+    color: var(--medium-seashell);
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .no-scroll {
     overflow: hidden;
 }

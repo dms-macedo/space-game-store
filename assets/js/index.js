@@ -1080,7 +1080,7 @@ const RenderizarJogos = async (Jogos) => {
                 // Tags
                 const contentTags = document.createElement("div")
                 contentTags.classList.add("content-tags")
-                contentTextsBuyBox.appendChild(contentTags)
+                // contentTextsBuyBox.appendChild(contentTags)
 
                   const TagContent = document.createElement("div")
                   TagContent.classList.add("tag-content")
@@ -1185,20 +1185,48 @@ const RenderizarJogos = async (Jogos) => {
               PriceContent.classList.add("price-content")
               contentTextsBuyBox.appendChild(PriceContent)
 
-                    const originalPrice = document.createElement("p")
-                    originalPrice.classList.add("original-price")
-                    originalPrice.textContent = game.precoOriginal
-                    PriceContent.appendChild(originalPrice)
+                    if (game.emPromocao === true) {
+                      const originalPrice = document.createElement("p")
+                      originalPrice.classList.add("original-price")
+                      originalPrice.textContent = ConverterParaReal(game.precoOriginal)
+                      PriceContent.appendChild(originalPrice)
 
-                    const PriceWithDiscount = document.createElement("p")
-                    PriceWithDiscount.classList.add("price")
-                    PriceWithDiscount.textContent = game.preco
-                    PriceContent.appendChild(PriceWithDiscount)
-                    
-                    const PricePercentDiscount = document.createElement("p")
-                    PricePercentDiscount.classList.add("price-percent-discount")
-                    PricePercentDiscount.textContent = `${percentPrice}%`
-                    PriceContent.appendChild(PricePercentDiscount)
+                      const PriceWithDiscount = document.createElement("p")
+                      PriceWithDiscount.classList.add("price")
+                      PriceWithDiscount.textContent = ConverterParaReal(game.preco)
+                      PriceContent.appendChild(PriceWithDiscount)
+                      
+                      const PricePercentDiscount = document.createElement("p")
+                      PricePercentDiscount.classList.add("price-percent-discount")
+                      PricePercentDiscount.textContent = `${percentPrice}%`
+                      contentTextsBuyBox.appendChild(PricePercentDiscount)
+
+                      if (percentPrice <= 15) {
+                        PricePercentDiscount.style.backgroundColor = "#3B82F6"
+                      } else if (percentPrice <= 30) {
+                        PricePercentDiscount.style.backgroundColor = "#10B981"
+                      } else if (percentPrice <= 50) {
+                        PricePercentDiscount.style.backgroundColor = "#F59E0B"
+                      } else if (percentPrice <= 70) {
+                        PricePercentDiscount.style.backgroundColor = "#EA580C"
+                      } else {
+                        PricePercentDiscount.style.backgroundColor = "#E11D48"
+                      }
+
+
+                    } else {
+                      const originalPrice = document.createElement("p")
+                      originalPrice.classList.add("price")
+                      originalPrice.textContent = ConverterParaReal(game.preco)
+                      PriceContent.appendChild(originalPrice)
+                    }
+
+              //Botão Compra
+              const BuyButton = document.createElement("button")
+              BuyButton.classList.add("buy-button-modal")
+              BuyButton.textContent = "Comprar"
+              contentTextsBuyBox.appendChild(BuyButton)
+
 
 
                 /* {
