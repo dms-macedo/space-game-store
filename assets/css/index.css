@@ -318,6 +318,21 @@ html {
     color: var(--medium-seashell)
 }
 
+.images-consoles-card{
+    position: absolute;
+    filter: invert();
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000000;
+}
+
+.images-consoles-card img{
+    height: 25px;
+}
+
 .preco-card-content{
     display: flex;
     flex-direction: column;

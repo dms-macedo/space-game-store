@@ -1015,6 +1015,26 @@ const RenderizarJogos = async (Jogos) => {
               precoCardContent.appendChild(precoCard);
             }
 
+        // --- Logos Consoles --- 
+        const ImageConsolesContent = document.createElement("div")
+        ImageConsolesContent.classList.add("images-consoles-card")
+        contentCard.appendChild(ImageConsolesContent)
+
+        const imagePlayStation = document.createElement("img")
+        imagePlayStation.src = "../../assets/images/playstation.png"
+
+        const imageXbox = document.createElement("img")
+        imageXbox.src = "../../assets/images/xbox.png"
+        
+        if (game.plataformas.includes("PlayStation") && game.plataformas.includes("Xbox")) {
+          ImageConsolesContent.appendChild(imagePlayStation)
+          ImageConsolesContent.appendChild(imageXbox)
+        } else if (game.plataformas.includes("PlayStation") && !game.plataformas.includes("Xbox")) {
+          ImageConsolesContent.appendChild(imagePlayStation)
+        } else if (game.plataformas.includes("Xbox") && !game.plataformas.includes("PlayStation")) {
+          ImageConsolesContent.appendChild(imageXbox)
+        }
+
         // Variável criada no seu código original, mas não anexada ao DOM:
         const consoleIconsContent = document.createElement("div");
         consoleIconsContent.classList.add("console-icons-content");
@@ -1226,37 +1246,6 @@ const RenderizarJogos = async (Jogos) => {
               BuyButton.classList.add("buy-button-modal")
               BuyButton.textContent = "Comprar"
               contentTextsBuyBox.appendChild(BuyButton)
-
-
-
-                /* {
-                  "id": 51,
-                  "nome": "Red Dead Redemption",
-                  "dataLancamento": "2010-05-18",
-                  "descricao": "Um dos clássicos mundiais que definiu por conta inteira como amamos grandes games. Neste épico e aterrorizante bang-bang atemporal sob os grandiosos desertos de fronteiras mexicanas da morte nas mãos dos últimos cartéis, jogue incansavelmente na pele icônica, velha de guerra e eternizada lenda de John Marston que foi violentamente coagido sob as amarras do impiedoso governo central a matar antigos amigos de longa data no fim mortal dos velhos homens livres numa tragédia emocionante sem precedentes que conta de fato o preço sangrento de tentar pagar e lavar toda sua dívida suja deixada pela vida nos dias escuros.",
-                  "plataformas": ["PlayStation", "Xbox"],
-                  "genero": "Ação e Aventura",
-                  "tags": ["Mundo Aberto", "Faroeste", "Tiro", "História Rica"],
-                  "modosDeJogo": ["Singleplayer", "Multiplayer"],
-                  "classificacao": "18",
-                  "tamanhoGB": 10,
-                  "notaMetacritic": 95,
-                  "precoOriginal": 249.90,
-                  "preco": 149.90,
-                  "emPromocao": true,
-                  "desenvolvedora": "Rockstar Games",
-                  "imagemCapa": "rdr1.jpg"
-                } */
-
-                // Variáveis criadas no seu código original, mas não anexadas ao DOM:
-                const GeneroGameBoxBuy = document.createElement("h2");
-                GeneroGameBoxBuy.classList.add("genero-game-box-infos");
-
-                const MetacriticGameBoxBuy = document.createElement("h1");
-                MetacriticGameBoxBuy.classList.add("metacritic-note");
-                MetacriticGameBoxBuy.textContent = game.notaMetacritic;
-
-
 
     // ==========================================
     // 3. EVENTOS E INSERÇÃO FINAL NO DOM
