@@ -28,21 +28,6 @@ document.addEventListener("click", (event) => {
   }
 });
 
-const iconsStore = document.querySelector(".icons-store");
-const button_icon_remove = document.querySelector("#btn-toggle-store");
-
-button_icon_remove.textContent = "<<";
-
-button_icon_remove.addEventListener("click", (event) => {
-  if (iconsStore.style.left === "-62px") {
-    iconsStore.style.left = "20px";
-    event.target.textContent = "<<";
-  } else {
-    iconsStore.style.left = "-62px";
-    event.target.textContent = ">>";
-  }
-});
-
 const jogosJSON = `[
   {
     "id": 1,

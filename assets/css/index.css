@@ -72,63 +72,6 @@ html {
     background-color: var(--gray-color-palete)j;
 }
 
-.icons-store{
-    display: flex;
-    flex-direction: column;
-    position: fixed;                     
-    top: 50.75%;
-    left: 20px;
-    transform: translateY(-50.75%);
-    z-index: 10;
-    height: 500px;
-    background-color: var(--light-cobalt-blue);
-    justify-content: center;
-    padding: 10px;
-    border-radius: 40px;
-    gap: 20px;
-    align-items: center;
-    border: 2px solid var(--medium-seashell);
-    transition: all 0.3s ease-in-out ;
-}
-
-#btn-toggle-store{
-    position: fixed;
-    z-index: 10000;
-    top: 50%;
-    left: 60px;
-    transform: translateY(-50%);
-    color: var(--medium-seashell);
-    font-size: 16px;
-    font-family: Manrope;
-    background-color: var(--light-cobalt-blue);
-    border: 2px solid var(--medium-seashell);
-    border-left: none;
-    border-radius: 0 10px 10px 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding-right: 10px;
-    letter-spacing: -5px;
-}
-
-#btn-toggle-store:hover{
-    cursor: pointer;
-}
-
-.icons-store img{
-    filter: invert();
-    height: 40px;
-}
-
-#playstationicon-store-nav{
-    height: 33px;
-    align-self: center;
-}
-
-.icons-store img:hover{
-    cursor: pointer;
-}
-
 .header-principal{
     background-color: var(--dark-imperial-blue);
     display: flex;
@@ -234,8 +177,8 @@ html {
     background-color: var(--medium-seashell);
     height: 2px;
     bottom: 10px;
-    left: 150px;
-    right: 150px;
+    left: 90px;
+    right: 90px;
     z-index: 1000;
 }
 
@@ -260,8 +203,8 @@ html {
     justify-content: center;
     gap: 20px;
     background-color: var(--dark-imperial-blue);
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 110px;
+    padding-right: 110px;
 }
 
 .card-content{
